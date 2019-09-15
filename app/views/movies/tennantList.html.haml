@@ -1,0 +1,120 @@
+!!!
+%html
+  %head
+    %title Tenant List
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Tenant List
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+         
+  %body
+    .w3-panel.w3-clear.w3-center
+      %h2.w3-opacity Tenant List
+    :css
+      * {
+          box-sizing: border-box;
+      }
+      
+      input[type=text], select, textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+      }
+      
+      label {
+          padding: 12px 12px 12px 0;
+          display: inline-block;
+      }
+      
+      input[type=submit] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          float: right;
+      }
+      
+      input[type=submit]:hover {
+          background-color: #45a049;
+      }
+      
+      .container {
+          border-radius: 5px;
+          background-color: blue;
+          padding: 20px;
+      }
+      
+      .col-25 {
+          float: left;
+          width: 25%;
+          margin-top: 6px;
+          margin-left: 200px;
+      }
+      
+      .col-75 {
+          float: left;
+          width: 75%;
+          margin-top: 6px;
+          margin-left: 200px;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      
+      /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+          .col-25, .col-75, input[type=submit] {
+              width: 100%;
+              margin-top: 0;
+          }
+      }
+      button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 30%;
+        font-size: 18px;
+        margin: center;
+        margin-left: 500px;
+        margin-top: 40px;
+      }
+  %body
+    .w3-container
+      %table.w3-table-all
+        %thead
+          %tr.w3-blue
+            %th=link_to "Tenant", tennantList_path(sort: "tenant"),id: "tenant_header"
+            %th Email
+            %th=link_to "Rent", tennantList_path(sort: "rent"),id: "rent_header"
+            %th=link_to "Unread Messages", tennantList_path(sort: "unreadMess"),id: "unreadMess_header"
+            %th=link_to " Unresolved Maitenance Requests", tennantList_path(sort: "maintenance"),id: "rent_header"
+            %th Property Location 
+        %tbody
+          - @allTenants.each do |tenant|
+            %tr
+              %td= tenant.tenant
+              %td= tenant.email
+              %td= tenant.rent
+              %td= tenant.unreadMess
+              %td= tenant.maintenance
+              %td= tenant.propLoc
+        
+      

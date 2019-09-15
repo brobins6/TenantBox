@@ -1,0 +1,253 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Maintenance Requests
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+         
+  %body
+    .w3-panel.w3-clear.w3-center
+      %h2.w3-opacity Maintenance Requests
+    :css
+      * {
+          box-sizing: border-box;
+      }
+      
+      input[type=text], select, textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+      }
+      
+      label {
+          padding: 12px 12px 12px 0;
+          display: inline-block;
+      }
+      
+      input[type=submit] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          float: right;
+      }
+      
+      input[type=submit]:hover {
+          background-color: #45a049;
+      }
+      
+      .container {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+      }
+      
+      .col-25 {
+          float: left;
+          width: 25%;
+          margin-top: 6px;
+          margin-left: 200px;
+      }
+      
+      .col-75 {
+          float: left;
+          width: 75%;
+          margin-top: 6px;
+          margin-left: 200px;
+      }
+      
+       .limiter {
+       width: 1366px;
+       margin: 0 auto;
+      }
+
+      .container-table100 {
+       width: 100%;
+       /min-height: 100vh;
+       /background: #fff;
+       display: -webkit-box;
+       display: -webkit-flex;
+       display: -moz-box;
+       display: -ms-flexbox;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-wrap: wrap;
+       /padding: 33px 30px;
+      }
+
+      .wrap-table100 {
+       width: 1170px;
+      }
+
+      .table100 {
+       background-color: #fff;
+      }
+
+      table {
+       width: 100%;
+      }
+
+      th, td {
+       font-weight: unset;
+       padding-right: 10px;
+      }
+
+      .column1 {
+       width: 14%;
+       padding-left: 40px;
+      }
+
+      .column2 {
+       width: 13%;
+      }
+
+      .column3 {
+       width: 22%;
+      }
+
+      .column4 {
+       width: 14%;
+      }
+
+      .column5 {
+       width: 19%;
+      }
+      
+      .column6 {
+       width: 14%;
+      }
+      
+      .column7 {
+       width: 14%;
+      }
+
+      .table100-head th {
+       padding-top: 18px;
+       padding-bottom: 18px;
+      }
+
+      .table100-body td {
+       padding-top: 16px;
+       padding-bottom: 16px;
+      }
+      
+      .table100.ver1 th {
+       font-family: Lato-Bold;
+       font-size: 18px;
+       color: #fff;
+       line-height: 1.4;
+
+       background-color: #6c7ae0;
+      }
+
+      .table100.ver1 td {
+       font-family: Lato-Regular;
+       font-size: 15px;
+       color: #808080;
+       line-height: 1.4;
+      }
+
+      .table100.ver1 .table100-body tr:nth-child(even) {
+       background-color: #f8f6ff;
+      }
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      
+      /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+          .col-25, .col-75, input[type=submit] {
+              width: 100%;
+              margin-top: 0;
+          }
+      }
+      button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 30%;
+        font-size: 18px;
+        margin: center;
+        margin-left: 500px;
+        margin-top: 40px;
+      }
+      
+   
+
+  %body
+  .limiter
+  .container-table100
+    .wrap-table100
+      .table100.ver1.m-b-110
+        .table100-head
+          %table
+            %thead
+              %tr.row100.head
+                %th.cell100.column1 Name
+                %th.cell100.column2 Email
+                %th.cell100.column3 Address
+                %th.cell100.column4 Request
+                %th.cell100.column5 Subject
+                %th.cell100.column6 Time Created
+                %th.cell100.column7 Status
+        .table100-body.js-pscroll
+          %table
+            %tbody
+            - @requests.each do |request|
+              %tr.row100.body
+                %td.cell100.column1= request.name
+                %td.cell100.column2= request.email
+                %td.cell100.column3= request.address
+                %td.cell100.column4= request.option
+                %td.cell100.column5= request.body
+                %td.cell100.column6= request.created_at
+                %td.cell100.column7= request.status
+                
+
+    // .w3-container
+    //   %table.w3-table-all
+    //     %thead
+    //       %tr.w3-red
+    //         .test1 Name
+    //         %th Email
+    //         %th Address
+    //         %th Request
+    //         %th Subject
+    //         %th Time of Request
+    //         %th Status
+    // - @requests.each do |request|
+    //   %tr
+    //     .test1= request.name
+    //     .test= request.email
+    //     .test= request.address
+    //     .test= request.option
+    //     .test= request.body
+    //     .test= request.status
+    //     .test= request.created_at
+    //     // %td= link_to 'Show', request
+    //     // %td= link_to 'Edit', edit_request_path(request)
+    //     // %td= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' }
+        
+  %body
+    %p
+    %button{:onclick => "window.location.href='/requestform'"} Submit a New Request
+    /%button.w3-button.w3-block.w3-black{:style => "width:30%"} Button

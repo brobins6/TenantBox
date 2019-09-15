@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Reply
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=RobotoDraft", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif}
+      .w3-bar-block .w3-bar-item {padding: 16px}
+      .w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+        color: #000!important;
+        background-color: #f1f1f1!important;
+        margin-top: 50px;}
+  %body
+    #id01.w3-modal{:style => "z-index:4"}
+    .w3-modal-content.w3-animate-zoom
+    .w3-container.w3-padding.w3-light-grey.w3-large
+      %h2{:align => "center"} Send Mail
+      =form_for(:message, url: send_path) do |f|
+        =f.label :to
+        .w3-input.w3-border.w3-margin-bottom=f.email_field :receiver
+        =f.label :from
+        .w3-input.w3-border.w3-margin-bottom=f.email_field :sender
+        =f.label :subject
+        .w3-input.w3-border.w3-margin-bottom=f.text_field :subject
+        =f.label :content
+        .w3-input.w3-bordcer.w3-margin-bottom=f.text_area :content
+            
+        .w3-section
+        %i.fa.fa-remove.w3-right
+        %a.w3-button.w3-blue.w3-right{:href => '/LandLord/Messages'}
+          Cancel  
+        /%i.fa.fa-remove.w3-right
+        %a.w3-button.w3-clear.w3-left{:onclick => "document.getElementById('id01').style.display='none'"}=f.submit "Send" 

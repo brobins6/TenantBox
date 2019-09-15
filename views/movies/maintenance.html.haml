@@ -1,0 +1,65 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title W3.CSS Profile
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  %body
+    %h1 Maintenance
+  %body.w3-light-grey
+    / Top container
+    .w3-bar.w3-clear
+      %a.w3-bar-item.w3-button.w3-right{:href => "#"} Logout
+    / Sidebar/menu
+    %nav#mySidebar.w3-sidebar.w3-collapse.w3-white.w3-animate-left{:style => "z-index:3;width:300px;"}
+      %br/
+      .w3-container.w3-row
+        .w3-col.s4 
+          %img.w3-circle.w3-margin-right{:src => "/images/download.png", :style => "width:46px"}/
+
+        .w3-col.s8.w3-bar
+          %span
+            Welcome,
+            %strong _________
+            Current Address: 
+            _______
+          %br/
+          %a.w3-bar-item.w3-button{:href => "/movies/messages"}
+            %i.fa.fa-envelope
+          %a.w3-bar-item.w3-button{:href => "/movies/profile"}
+            %i.fa.fa-user
+          %a.w3-bar-item.w3-button{:href => "/movies/settings"}
+            %i.fa.fa-cog
+      %hr/
+      .w3-bar-block
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/"}
+          %i.fa.fa-home.fa-fw>
+            Dashboard
+      .w3-bar-block
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/movies/profile"}
+          %i.fa.fa-user.fa-fw>
+            Profile
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/movies/messages"}
+          %i.fa.fa-envelope.fa-fw>
+            Messages
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/movies/maintenance"} 
+          %i.fa.fa-male.fa-fw>
+            Maintenance Requests
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/movies/pay_rent"}
+          %i.fa.fa-credit-card.fa-fw>
+            Payments
+            .w3-bar-block
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/movies/documents"}
+          %i.fa.fa-user.fa-fw>
+            Documents
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "/movies/settings"}
+          %i.fa.fa-cog.fa-fw>
+            Settings
+        %br/
+        %br/

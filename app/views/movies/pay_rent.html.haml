@@ -1,0 +1,267 @@
+!!!
+%html
+  %head
+    %title Pay Rent
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      body {
+        font-family: Arial;
+        font-size: 17px;
+        //padding: 8px;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      .row {
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap; /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 -16px;
+      }
+      
+      .col-25 {
+        -ms-flex: 25%; /* IE10 */
+        flex: 25%;
+      }
+      
+      .col-50 {
+        -ms-flex: 50%; /* IE10 */
+        flex: 50%;
+      }
+      
+      .col-75 {
+        -ms-flex: 75%; /* IE10 */
+        flex: 75%;
+      }
+      
+      .col-25,
+      .col-50,
+      .col-75 {
+        padding: 0 16px;
+      }
+      
+      .container {
+        background-color: #fcfcfc;
+        padding: 5px 20px 15px 20px;
+        // border: 1px solid lightgrey;
+        border-radius: 10px;
+        margin-top: 82px;
+        box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+        -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+      
+      input[type=text] {
+        background-color: #fcfcfc;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        // border: 1px solid #ccc;
+        // border-radius: 3px;
+        border-bottom: 2px solid #adadad;
+      }
+      
+      .label {
+        margin-bottom: 10px;
+        display: block;
+      }
+      
+      .icon-container {
+        margin-bottom: 20px;
+        padding: 7px 0;
+        font-size: 24px;
+      }
+      
+      .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        width: 100%;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 17px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        background-color: #029f5b;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .btn:hover {
+        background-color: #45a049;
+      }
+      
+      a {
+        color: #2196F3;
+      }
+      
+      hr {
+        border: 1px solid lightgrey;
+      }
+      
+      .span.price {
+        float: right;
+        color: grey;
+      }
+      
+      /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+      @media (max-width: 800px) {
+        .row {
+          flex-direction: column-reverse;
+        }
+        .col-25 {
+          margin-bottom: 20px;
+        }
+      }
+  %body
+    .row
+      .col-75
+        .container
+          %form{:action => "/action_page.php"}
+            .row
+              .col-50
+                %h3 Billing Address
+                %label{:for => "fname"}
+                  %i.fa.fa-user
+                  Full Name
+                %input#fname{:name => "firstname", :type => "text"}/
+                %label{:for => "email"}
+                  %i.fa.fa-envelope
+                  Email
+                %input#email{:name => "email", :type => "text"}/
+                %label{:for => "adr"}
+                  %i.fa.fa-address-card-o
+                  Address
+                %input#adr{:name => "address", :type => "text"}/
+                %label{:for => "city"}
+                  %i.fa.fa-institution
+                  City
+                %input#city{:name => "city",  :type => "text"}/
+                .row
+                  .col-50
+                    %label{:for => "state"} State
+                    %input#state{:name => "state", :type => "text"}/
+                    
+                  .col-50
+                    %label{:for => "zip"} Zip
+                    %input#zip{:name => "zip", :type => "text"}/
+              .col-50
+                %h3 Payment
+                %label{:for => "fname"} Accepted Cards
+                .icon-container
+                  %i.fa.fa-cc-visa{:style => "color:navy;"}
+                  %i.fa.fa-cc-amex{:style => "color:blue;"}
+                  %i.fa.fa-cc-mastercard{:style => "color:red;"}
+                  %i.fa.fa-cc-discover{:style => "color:orange;"}
+                %label{:for => "cname"} Name on Card
+                %input#cname{:name => "cardname", :placeholder => "John More Doe", :type => "text"}/
+                %label{:for => "ccnum"} Credit card number
+                %input#ccnum{:name => "cardnumber", :placeholder => "1111-2222-3333-4444", :type => "text"}/
+                %label{:for => "expmonth"} Exp Month
+                %input#expmonth{:name => "expmonth", :placeholder => "September", :type => "text"}/
+                .row
+                  .col-50
+                    %label{:for => "expyear"} Exp Year
+                    %input#expyear{:name => "expyear", :placeholder => "2018", :type => "text"}/
+                  .col-50
+                    %label{:for => "cvv"} CVV
+                    %input#cvv{:name => "cvv", :placeholder => "352", :type => "text"}/
+            %input.btn{:type => "submit", :value => "Submit"}/
+
+// !!!
+// %html
+//   %head
+//     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+//     %title Payments
+//     %meta{:charset => "UTF-8"}/
+//     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+//     %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+//     %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+//     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+//     :css
+//       html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+//       .panel-default>.panel-heading{
+//         width: 100%;
+//       }
+      
+//   %body
+//     .w3-panel.w3-clear.w3-center
+//       %h2.w3-opacity Payments
+// .div1
+//   %link#bootstrap-css{:href => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+// /%script{:src => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"}
+// /%script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
+// %link{:href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+// %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js", :type => "text/javascript"}
+// %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js", :type => "text/javascript"}
+// / If you're using Stripe for payments
+// %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
+// .container
+//   .row
+//     /
+//       You can make it whatever width you want. I'm making it full width
+//       on <= small devices and 4/12 page width on >= medium devices
+//     .col-xs-12.col-md-12
+//       / CREDIT CARD FORM STARTS HERE
+//       .panel.panel-default.credit-card-box
+//         .panel-heading.display-table
+//           .row.display-tr
+//             %h3.panel-title.display-td Payment Details
+//             .display-td
+//               %img.img-responsive.pull-right{:src => "http://i76.imgup.net/accepted_c22e0.png"}/
+//         .panel-body
+//           %form#payment-form{:role => "form"}
+//             .row
+//               .col-xs-12
+//                 .form-group
+//                   %label{:for => "cardNumber"} CARD NUMBER
+//                   .input-group
+//                     %input.form-control{:autocomplete => "cc-number", :autofocus => "", :name => "cardNumber", :placeholder => "Valid Card Number", :required => "", :type => "tel"}/
+//                     %span.input-group-addon
+//                       %i.fa.fa-credit-card
+//             .row
+//               .col-xs-7.col-md-7
+//                 .form-group
+//                   %label{:for => "cardExpiry"}
+//                     %span.hidden-xs EXPIRATION
+//                     %span.visible-xs-inline EXP
+//                     DATE
+//                   %input.form-control{:autocomplete => "cc-exp", :name => "cardExpiry", :placeholder => "MM / YY", :required => "", :type => "tel"}/
+//               .col-xs-5.col-md-5.pull-right
+//                 .form-group
+//                   %label{:for => "cardCVC"} CV CODE
+//                   %input.form-control{:autocomplete => "cc-csc", :name => "cardCVC", :placeholder => "CVC", :required => "", :type => "tel"}/
+//               .col-xs-7.col-md-7
+//                 .form-group  
+//                   %label{:for => "firstname"}
+//                     %span.hidden-xs First Name
+//                     // %span.visible-xs-inline EXP
+//                     // DATE
+//                   %input.form-control{:autocomplete => "", :name => "firstname", :placeholder => "MM / YY", :required => "", :type => "tel"}/
+//               .col-xs-5.col-md-5.pull-right
+//                 .form-group
+//                   %label{:for => "cardCVC"} CV CODE
+//                   %input.form-control{:autocomplete => "cc-csc", :name => "cardCVC", :placeholder => "CVC", :required => "", :type => "tel"}/
+//             .row
+//               .col-xs-12
+//                 %button.btn.btn-success.btn-lg.btn-block{:type => "submit"} Submit Payment
+//             .row{:style => "display:none;"}
+//               .col-xs-12
+//                 %p.payment-errors
+//       / CREDIT CARD FORM ENDS HERE
+// / If you're using Stripe for payments
+// %script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}

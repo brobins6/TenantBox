@@ -1,0 +1,95 @@
+!!!
+%html
+  %head
+
+    //%title Tenant and Landlord Communication
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "assets/stylesheet/banner.css", :rel => "stylesheet"}/
+    %body.w3-light-grey
+    = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    :css
+      body {margin:0;}
+
+      .icon-bar {
+          background-color: #555;
+          overflow: auto;
+          margin-bottom: -16px;
+      }
+
+      .icon-bar a {
+          float: left;
+          width: 14%;
+          text-align: center;
+          padding: 12px 0;
+          transition: all 0.3s ease;
+          color: white;
+          font-size: 36px;
+      }
+      .a:active {
+          background-color: #4CAF50 !important;
+      }
+      .icon-bar a:hover {
+          background-color: #000;
+      }
+
+      .icon-bar a.active {
+          background-color: #4CAF50 !important;
+          color: #4CAF50;
+      }
+      
+      .banner { 
+          width: 100%;
+          display: block;
+      }
+  
+      .banner > .banner-image {
+          width: 100%;
+          display: block;
+          margin-top: 0%;
+      }
+      .logo {
+          position: absolute;
+          top: 14%;
+          left: 23%;
+          float: none;
+          font-size: 34px;
+          color: honeydew;
+          font-weight: bold;
+      }
+      .text-center.p-t-115{
+        margin-top: 20px;
+      }
+
+  %body
+
+    %dev.banner
+      %img.banner-image{:src => "http://www.mediafire.com/convkey/85b9/na846mkh2oxogwe9g.jpg"}/
+      // .logo Tenant and Landlord Communication
+    
+    .icon-bar
+      %a{:href => "/LandLord"}
+        %i.fa.fa-home{:title => "Home"}
+      %a{:href => "/LandLord/Profile"}
+        %i.fa.fa-user{:title => "Profile"}
+      %a{:href => "/LandLord/Messages"}
+        %i.fa.fa-envelope{:title => "Messages"}
+      %a{:href => "/LandLord/maintenance"}
+        %i.fa.fa-male{:title => "Maintenance"}
+      %a{:href => "/LandLord/TennantList"}
+        %i.fa.fa-address-card-o{:title => "Tennant List"}
+      %a{:href => "/settings"}
+        %i.fa.fa-cog{:title => "Settings"}
+      %a{:href => "/logout"}
+        %i.fa.fa-sign-out{:title => "Logout"}
+    #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+
+      = yield

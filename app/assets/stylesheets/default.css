@@ -1,0 +1,125 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: DarkSlateGrey;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 10pt;
+}
+div#main {
+  margin: 0;
+  padding: 0 20px 20px;
+  background-color: #f1f1f1;
+}
+a {
+  background: Black;
+/*   background-color: yellow; */
+  color: maroon;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+body {
+    
+    background-color: clear;
+}
+
+h1 {
+  color: white;
+  font-size: 150%;
+  font-style: normal;
+  display: inline-block;
+  width: 100%;
+  border-bottom: 0px solid DarkSlateGrey;
+}
+h1.title {
+  color: Grey;
+  font-size: 2.5em;
+  font-style: normal;
+  /*background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c3/Victoria_Cross_Range_%28Alberta%29_banner.jpg");*/
+}
+h1.align {
+  font-size: 2.5em;
+  text-align: center;
+}
+table#tenants {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#tenants th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: LightSteelBlue ;
+}
+table#tenants th.hilite {
+  background-color: yellow;
+}
+table#tenants th, table#tenants td {
+  padding: 4px;
+  text-align: left;
+}
+table#user {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#user th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: LightSteelBlue ;
+}
+table#user th.hilite {
+  background-color: yellow;
+}
+table#user th, table#user td {
+  padding: 4px;
+  text-align: center;
+  display: table-row;
+  
+}
+table#user.center{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  font-size: 1.2em;
+
+}
+
+#notice #warning {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+form label {
+  display: block;
+  line-height: 25px;
+  /*font-weight: bold;*/
+  color: #908f8f;
+}
+
+div.align {
+    background-color: lightgrey;
+    width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}
+
+mySidebar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+th.destroy {
+  background-color: red
+}
+
+.w3-white,.w3-hover-white:hover{
+  margin-left: -20px;
+  margin-top: 0px;
+}

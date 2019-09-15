@@ -1,0 +1,87 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Tenant Box Home
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "assets/stylesheet/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      
+      .w3-opacity, .w3-hover-opacity:hover{
+        display: inline;
+      }
+          
+    %body
+      .w3-panel.w3-clear.w3-center
+        %h2.w3-opacity Welcome 
+        %h2.w3-opacity= current_user.name.capitalize
+        %h2.w3-opacity !
+    / Overlay effect when opening sidebar on small screens
+    
+    / !PAGE CONTENT!
+    .w3-main{:style => "margin-left:50px;margin-top:43px;"}
+      / Header
+      %body.w3-container{:style => "padding-top:22px"}
+
+        %h5
+          %b
+            %i.fa.fa-dashboard
+            My Dashboard
+      .w3-row-padding.w3-margin-bottom
+        .w3-quarter
+          .w3-container.w3-red.w3-padding-16
+            .w3-left
+              %i.fa.fa-credit-card.w3-xxxlarge
+            .w3-right
+              %h3 Total Balance Due: $#{@totalMoney}
+            .w3-clear
+            %h4
+        .w3-quarter
+          .w3-container.w3-teal.w3-padding-16
+            .w3-left
+              %i.fa.fa-comment.w3-xxxlarge
+            .w3-right
+              %h3 Total Unread Messages (#{get_received.count})
+            .w3-clear
+            %h4= link_to "Messages", landLordMessages_path
+        .w3-quarter
+          .w3-container.w3-blue.w3-padding-16
+            .w3-left
+              %i.fa.fa-male.w3-xxxlarge
+            .w3-right
+              %h3 Total Tenants #{@tenantTotal}
+            .w3-clear
+            %h4= link_to "Tennant List", tennantList_path
+      /%h2= link_to "LandLord Dashboard", landLord_path
+
+
+
+
+
+
+
+
+/%table#tenants
+/  %thead
+/    %tr
+/      %th= link_to "Dashboard", landLord_path
+/      %th= link_to "Tennant List", tennantList_path
+/      %th= link_to "Messages", landLordMessages_path
+/      %th= link_to "Documents", landLordDocuments_path
+/      
+/%table#tenants
+/  %tbody 
+/    %tr
+/      %td Total Balance Due: #{@totalMoney}
+/    %br
+/    %tr
+/      %td Total Unread Messages #{@totalMessages}
+/    %br
+/    %tr
+/      %td Total Unopened Documents #{@totalDocuments}
+/    %br

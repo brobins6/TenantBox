@@ -1,0 +1,127 @@
+//%h1 Welcome Tenants
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Tenant Box Home
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "assets/stylesheet/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+      
+      .w3-opacity, .w3-hover-opacity:hover{
+        display: inline;
+      }
+
+          
+    %body
+      .w3-panel.w3-clear.w3-center
+        %h2.w3-opacity Welcome 
+        %h2.w3-opacity= current_user.name.capitalize
+        %h2.w3-opacity !        
+    / Overlay effect when opening sidebar on small screens
+    
+    / !PAGE CONTENT!
+    .w3-main{:style => "margin-left:50px;margin-top:43px;"}
+      / Header
+      %body.w3-container{:style => "padding-top:22px"}
+
+        %h5
+          %b
+            %i.fa.fa-dashboard
+            My Dashboard
+      .w3-row-padding.w3-margin-bottom
+        .w3-quarter
+          .w3-container.w3-red.w3-padding-16
+            .w3-left
+              %i.fa.fa-credit-card.w3-xxxlarge
+            .w3-right
+              %h3 Due: $950
+              %h3 Date Due: 1st of the Month
+            .w3-clear
+              %h4= link_to "Payments", pay_rent_path
+        .w3-quarter
+          .w3-container.w3-teal.w3-padding-16
+            .w3-left
+              %i.fa.fa-comment.w3-xxxlarge
+            .w3-right
+              %h3 (#{get_received.count})
+            .w3-clear
+              %h4= link_to "Messages", messages_path
+        .w3-quarter
+          .w3-container.w3-blue.w3-padding-16
+            .w3-left
+              %i.fa.fa-male.w3-xxxlarge
+            .w3-right
+              %h3 
+            .w3-clear
+              %h4= link_to "Maintenance requests", tenant_maintenance_path
+        // .w3-quarter
+        //   .w3-container.w3-orange.w3-text-white.w3-padding-16
+        //     .w3-left
+        //       %i.fa.fa-file-text.w3-xxxlarge
+        //     .w3-right
+        //       %h3 4
+        //     .w3-clear
+        //     %h4 Documents
+      //%h2= link_to "LandLord Dashboard", landLord_path
+
+         
+      
+
+/%table#tenants
+/  %thead
+/    %tr
+/      %th Dashboard
+/      //%td= link_to "Dashboard", tenant_path(dashboard)
+/      %th Maintenance
+/      %th Message
+/      %th Documents
+/      %th Payment
+
+
+/%h1.align Profile 
+
+/%img{:src => "/images/download.png"}
+
+/%table#user.center
+/  %tbody 
+/    %tr
+/      %td Name:
+/    %br
+/    %tr
+/      %td Age: 
+  
+
+/%html
+/%h1.align Profile 
+
+/%img{:src => "/images/download.png"}
+
+/%table#user.center
+/  %tbody 
+/    %tr
+/      %td Name:
+/    %br
+/    %tr
+/      %td Age: 
+      
+/%div
+     
+
+/	%head
+/		%title= yield(:title)
+/		= yield(:head)
+/	%body
+/		%nav
+/			%a{ :href => "/views/tenant/dashboard", :title => "Dashboard" }
+/			%a{ :href => "/views/tenant/maintenance", :title => "Maintenance" }
+/			%a{ :href => "/views/tenant/message", :title => "Message" }
+/			%a{ :href => "/views/tenant/docs", :title => "Documents" }
+/			%a{ :href => "/views/tenant/payment", :title => "Payment" }
+/		#content
+
+/			= yield

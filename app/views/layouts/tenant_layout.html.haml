@@ -1,0 +1,41 @@
+
+%h1 Welcome Tenants
+
+%table#tenants
+  %thead
+    %tr
+      %th Dashboard
+      //%td= link_to "Dashboard", tenant_path(dashboard)
+      %th Maintenance
+      %th Message
+      %th Documents
+      %th Payment
+%h1.align Profile 
+
+%table#user.center
+  %tbody 
+    %tr
+      %td Name:
+    %br
+    %tr
+      %td Age: 
+%img{:src => "/images/download.png"}
+
+/-# tenant_layout.html.haml
+
+/%html
+
+/	%head
+/		%title= yield(:title)
+/		= yield(:head)
+/	%body
+/		%nav
+/			%a{ :href => "/views/tenant/dashboard", :title => "Dashboard" }
+/			%a{ :href => "/views/tenant/maintenance", :title => "Maintenance" }
+/			%a{ :href => "/views/tenant/message", :title => "Message" }
+/			%a{ :href => "/views/tenant/docs", :title => "Documents" }
+/			%a{ :href => "/views/tenant/payment", :title => "Payment" }
+/		#content
+
+/			= yield
+

@@ -1,0 +1,156 @@
+//Creating something to commit
+
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title W3.CSS Tenant and Landlord Communication
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  %body.w3-light-grey
+    / Top container
+    .w3-bar.w3-clear
+      %a.w3-bar-item.w3-button.w3-right{:href => "#"} Logout
+    / Sidebar/menu
+    %nav#mySidebar.w3-sidebar.w3-collapse.w3-white.w3-animate-left{:style => "z-index:3;width:300px;"}
+      %br/
+      .w3-container.w3-row
+        .w3-col.s4 
+          %img.w3-circle.w3-margin-right{:src => "/images/download.png", :style => "width:46px"}/
+
+        .w3-col.s8.w3-bar
+          %span
+            Welcome,
+            %strong _________
+            Current Address: 
+            _______
+          %br/
+          %a.w3-bar-item.w3-button{:href => "#"}
+            %i.fa.fa-envelope
+          %a.w3-bar-item.w3-button{:href => "#"}
+            %i.fa.fa-user
+          %a.w3-bar-item.w3-button{:href => "#"}
+            %i.fa.fa-cog
+      %hr/
+      .w3-block
+        %h5 Dashboard
+      .w3-bar-block
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "movies/profile"}
+          %i.fa.fa-user.fa-fw>
+            Profile
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "#"}
+          %i.fa.fa-envelope.fa-fw>
+            Messages
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "#"} 
+          %i.fa.fa-male.fa-fw>
+            Maintenance Requests
+        %a.w3-bar-item.w3-button.w3-padding.w3-white
+          %i.fa.fa-credit-card.fa-fw>
+            Payments
+        %a.w3-bar-item.w3-button.w3-padding.w3-white{:href => "#"}
+          %i.fa.fa-cog.fa-fw>
+            Settings
+        %br/
+        %br/
+    / Overlay effect when opening sidebar on small screens
+    #myOverlay.w3-overlay.w3-hide-large.w3-animate-opacity{:onclick => "w3_close()", :style => "cursor:pointer", :title => "close side menu"}
+    / !PAGE CONTENT!
+    .w3-main{:style => "margin-left:300px;margin-top:43px;"}
+      / Header
+      %header.w3-container{:style => "padding-top:22px"}
+        %h5
+          %b
+            %i.fa.fa-dashboard
+            My Dashboard
+      .w3-row-padding.w3-margin-bottom
+        .w3-quarter
+          .w3-container.w3-ripple.w3-red.w3-padding-16{:href => "#"}
+            .w3-left
+              %i.fa.fa-credit-card.w3-xxxlarge
+            .w3-right
+              %h3 Due: __
+              %h3 Date Due: __
+            .w3-clear
+            %h4 Payments
+        .w3-quarter
+          .w3-container.w3-ripple.w3-teal.w3-padding-16{:href => "#"}
+            .w3-left
+              %i.fa.fa-comment.w3-xxxlarge
+            .w3-right
+              %h3 10
+            .w3-clear
+            %h4 Messages
+        .w3-quarter
+          .w3-container.w3-ripple.w3-blue.w3-padding-16{:href => "#"}
+            .w3-left
+              %i.fa.fa-male.w3-xxxlarge
+            .w3-right
+              %h3 1
+            .w3-clear
+            %h4 Maintenance Requests
+        .w3-quarter
+          .w3-container.w3-ripple.w3-orange.w3-text-white.w3-padding-16{:href => "#"}
+            .w3-left
+              %i.fa.fa-file-text.w3-xxxlarge
+            .w3-right
+              %h3 4
+            .w3-clear
+            %h4 Documents
+         
+      
+
+/%table#tenants
+/  %thead
+/    %tr
+/      %th Dashboard
+/      //%td= link_to "Dashboard", tenant_path(dashboard)
+/      %th Maintenance
+/      %th Message
+/      %th Documents
+/      %th Payment
+
+
+/%h1.align Profile 
+
+/%img{:src => "/images/download.png"}
+
+/%table#user.center
+/  %tbody 
+/    %tr
+/      %td Name:
+/    %br
+/    %tr
+/      %td Age: 
+  
+/%html
+/%h1.align Profile 
+
+/%img{:src => "/images/download.png"}
+
+/%table#user.center
+/  %tbody 
+/    %tr
+/      %td Name:
+/    %br
+/    %tr
+/      %td Age: 
+      
+/%div
+     
+/	%head
+/		%title= yield(:title)
+/		= yield(:head)
+/	%body
+/		%nav
+/			%a{ :href => "/views/tenant/dashboard", :title => "Dashboard" }
+/			%a{ :href => "/views/tenant/maintenance", :title => "Maintenance" }
+/			%a{ :href => "/views/tenant/message", :title => "Message" }
+/			%a{ :href => "/views/tenant/docs", :title => "Documents" }
+/			%a{ :href => "/views/tenant/payment", :title => "Payment" }
+/		#content
+/			= yield

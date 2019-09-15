@@ -1,0 +1,62 @@
+!!!
+%html
+  %title Error 
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  
+  :css
+      html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        margin: auto;
+        margin-top: 100px;
+        /margin: auto;
+        text-align: center;
+    }
+    
+    .title {
+        color: grey;
+        font-size: 20px;
+    }
+    
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 25px;
+        font-size: 18px;
+    }
+
+  %body 
+  .w3-panel.w3-clear.w3-center
+  %h2.w3-opacity                                         
+      
+    /  Username
+    /%input#username{:onblur => "showname()", :type => "text"}
+    /  %br
+    /    %br
+    /      %span#welcome
+    /      :javascript
+    /        function showname() {
+    /        var u = document.getElementById("username").value;
+    /        document.getElementById("welcome").innerHTML = "Welcome " + u;
+    /        }
+    
+   
+  /Add icon library
+  /link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}
+  .card
+    %p.title Error
+    %p.title ---------------------------------
+    %p.title Message Has Not Been Sent 
+    %button{:onclick => "window.location.href='/messages'"} Go Back To Messages
+
+
+
