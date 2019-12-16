@@ -1,14 +1,37 @@
 # TenantBox
 
-This was a group assignment for Software engineering where me and my group where to work in a Agile environment.
-We tasked ourselves each week using zenhub for personal assignments for the project.
+Group Project for Software Engineering Class.
+My team and I were tasked to make a communication website between tenant and landlord. 
+I was paired with one of my teamates to create the landlord side of the website while my other teamates 
+worked on the tenant side of the site. 
 
-The project was to create a website that can have landords communicate with their tennants for maintenace requests and email. The landlords 
-would also have a list of all the tennants and the property they live at. 
 
-What i accomplished in it was to work together with one of my classmates on the landlord side where i created the datatbase with the tennants
-and enabled the landlord to sort through the tennants by name and others. I also made a table for the maintenance requests where the 
-landlord can change the status of the report by just clicking on the cell of the table.
+*Programmed on Ruby on Rails with haml code
+*Database was done using Postgres
+*MVC structure
+*agile development cycle
 
-We also wrote testing for the code using rspect and cucumber.
-The project was made in ruby on rails. 
+The features of the site:
+-Tenant and landlord account
+-database with all acounts
+-database with maintanace forms
+-able to log out of account 
+-All code was tested using RSpec 
+
+Tenant side:
+-maintanace request forms and all existing ones 
+-Communication threads between user and landlord
+-billing address
+-account profile
+-home page that shows unread messages, and how much is rent, and when its due.
+
+Landlord side:
+-shows total balance due 
+-Communication threads between user and landlord
+-account profile
+-all maintanace requests and able to change status 
+-list of all tenants and able to sort through them
+
+
+	
+  
